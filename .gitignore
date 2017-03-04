@@ -1,3 +1,4 @@
 .*
 __*
+build
 !.gitignore

@@ -39,4 +39,5 @@ def build(bld):
     ver = extract_version('.')
 
     mod = 'metis'
-    bld_shlib(bld, source=glob('libmetis/*.c')+glob('GKlib/*.c'), target=mod, use=['m'], includes=['include', 'GKlib', 'libmetis'], vnum=ver)
+    bld_shlib(bld, source=glob('libmetis/*.c')+glob('GKlib/*.c'), target=mod, use=['m'], includes=['include', 'GKlib', 'libmetis'], vnum=ver, install_path="${PREFIX}/lib/")
+    bld.install_files("${PREFIX}/include/", glob('include/*.h'))
