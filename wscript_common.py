@@ -2,9 +2,11 @@ from os import path
 import sys
 
 def base_options_C(opt):
+    opt.load('compiler_c compiler_cxx')
     opt.add_option('--sys', help='system prefix path for searching requirments')
 
 def base_configure_C(conf):
+    conf.load('compiler_c compiler_cxx')
     env = conf.env
     sys_prefix = conf.options.sys
     if sys_prefix:

@@ -12,14 +12,11 @@ if not path.exists('wscript_common.py'):
 from wscript_common import base_options_C, base_configure_C, bld_shlib
 
 def options(opt):
-    opt.load('compiler_c')
     base_options_C(opt)
 
 def configure(conf):
-    env = conf.env
-    conf.load('compiler_c')
     base_configure_C(conf)
-
+    env = conf.env
     if sys.platform == 'win32':
         conf.env.append_value('DEFINES', ['__thread=__declspec(thread)', 'WIN32',  'MSC',  '_CRT_SECURE_NO_DEPRECATE', 'USE_GKREGEX', '_WINDLL'])
 
